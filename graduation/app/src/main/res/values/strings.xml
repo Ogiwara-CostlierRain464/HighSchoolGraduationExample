@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UserService</string>
+    <string name="like_count">like count</string>
+    <string name="add_like">Add like</string>
+</resources>
