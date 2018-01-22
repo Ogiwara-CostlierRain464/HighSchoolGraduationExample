@@ -3,6 +3,7 @@ package jp.ogiwara.userservice.base;
 
 import android.content.Context;
 import android.databinding.ObservableArrayList;
+import android.util.Log;
 
 import java.util.List;
 
@@ -17,8 +18,10 @@ public class Dispatcher implements jp.ogiwara.cycle.Dispatcher<State> {
         if(action instanceof Load){
             Load load = (Load) action;
 
-            List list = load.getApp().getRepository().getUserUuids();
+            List<Integer> list = load.getApp().getRepository().getUserUuids();
             store.getState().getList().addAll(list);
+
+            Log.i(Dispatcher.class.getName(), "Load");
         }
     }
 }

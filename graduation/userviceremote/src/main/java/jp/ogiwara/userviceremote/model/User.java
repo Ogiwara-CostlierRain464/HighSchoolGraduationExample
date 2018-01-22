@@ -21,6 +21,8 @@ public class User extends RealmObject{
     @PrimaryKey
     private int uuid;
 
+
+    //以下 ゲッター、セッター
     {
         uuid = count++;
     }

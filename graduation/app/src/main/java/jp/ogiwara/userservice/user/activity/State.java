@@ -8,6 +8,7 @@ public class State implements jp.ogiwara.cycle.State {
     private ObservableField<String> name = new ObservableField<>();
     private ObservableInt like = new ObservableInt();
 
+    //以下 ゲッター、セッター
     public ObservableField<String> getName() {
         return name;
     }

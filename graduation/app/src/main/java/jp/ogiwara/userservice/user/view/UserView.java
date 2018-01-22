@@ -35,7 +35,7 @@ public class UserView extends FrameLayout implements View.OnClickListener{
         store = new Store<>(new State(), new Dispatcher(), getContext());
 
         binding.setStore(store);
-        binding.setHandler(this);
+        binding.layout.setOnClickListener(this);
     }
 
     public void setUuid(int uuid){

@@ -14,7 +14,7 @@
         <jp.ogiwara.userservice.other.UserListView
             app:list="@{store.getState().getList()}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

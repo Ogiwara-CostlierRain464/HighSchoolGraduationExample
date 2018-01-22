@@ -28,7 +28,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             this.name = name;
         }
     }
-
     private int uuid;
     private Store<State> store;
 
@@ -36,17 +35,21 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
 
+        //region uuidの取り出し
         if(savedInstanceState != null){
             uuid = savedInstanceState.getInt(Extra.UUID.name());
         }else{
             Intent intent = getIntent();
             uuid = intent.getIntExtra(Extra.UUID.name() ,0);
         }
+        //endregion
+
         store = new Store<>(new State(),new Dispatcher(), getApplicationContext());
 
         ActivityUserBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_user);
-        binding.setHandler(this);
         binding.setStore(store);
+
+        binding.buttonAdd.setOnClickListener(this);
 
         store.dispatch(new Load(uuid, (App) getApplication()));
     }

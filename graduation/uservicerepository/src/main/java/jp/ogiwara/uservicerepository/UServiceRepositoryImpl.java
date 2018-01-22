@@ -20,17 +20,18 @@ public class UServiceRepositoryImpl implements UServiceRepository{
 
     @Override
     public Flowable<User> getUser(int uuid) throws IndexOutOfBoundsException {
-        //means no cache
         //pull
         User user = api.getUser(uuid);
-        Realm realm = Realm.getDefaultInstance();
+        /*Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         User result = realm.copyToRealmOrUpdate(user);
         realm.commitTransaction();
 
         //push
-        return result.asFlowable();
-
+        return result.asFlowable();*/
+        return Flowable.unsafeCreate((subscriber) -> {
+            subscriber.onNext(user);
+        });
     }
 
     private void reFresh(){
